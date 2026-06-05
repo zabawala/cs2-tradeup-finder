@@ -1,7 +1,9 @@
 skin_name,collection,rarity,min_float,max_float,stattrak
-skin_name,collection,rarity,min_float,max_float,stattrak
-MAC-10 | Silver,The Bank Collection,Industrial Grade,0.00,0.08,False
-UMP-45 | Carbon Fiber,The Bank Collection,Industrial Grade,0.00,0.12,False
-Galil AR | Tuxedo,The Bank Collection,Mil-Spec,0.00,0.80,False
-Desert Eagle | Meteorite,The Bank Collection,Mil-Spec,0.00,0.18,False
-CZ75-Auto | Tuxedo,The Bank Collection,Mil-Spec,0.00,0.80,False
+MAC-10 | Silver,The Bank Collection,Industrial Grade,0.00,1.00,False
+Nova | Candy Apple,The Italy Collection,Industrial Grade,0.00,1.00,False
+Desert Eagle | Meteorite,The Bank Collection,Mil-Spec,0.00,1.00,False
+Galil AR | Tuxedo,The Bank Collection,Mil-Spec,0.00,1.00,False
+CZ75-Auto | Tuxedo,The Bank Collection,Mil-Spec,0.00,1.00,False
+Glock-18 | Candy Apple,The Italy Collection,Mil-Spec,0.00,1.00,False
+MP7 | Anodized Navy,The Italy Collection,Mil-Spec,0.00,1.00,False
+Sawed-Off | Full Stop,The Italy Collection,Mil-Spec,0.00,1.00,False

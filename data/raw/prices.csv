@@ -1,6 +1,9 @@
 skin_name,wear,price,volume
-MAC-10 | Silver,Factory New,1.20,100
-UMP-45 | Carbon Fiber,Factory New,0.85,100
-Galil AR | Tuxedo,Factory New,2.40,100
-Desert Eagle | Meteorite,Factory New,3.10,100
-CZ75-Auto | Tuxedo,Factory New,1.70,100
+MAC-10 | Silver,Field-Tested,0.25,100
+Nova | Candy Apple,Field-Tested,0.15,100
+Desert Eagle | Meteorite,Field-Tested,1.00,50
+Galil AR | Tuxedo,Field-Tested,0.70,50
+CZ75-Auto | Tuxedo,Field-Tested,0.40,50
+Glock-18 | Candy Apple,Field-Tested,1.20,50
+MP7 | Anodized Navy,Field-Tested,2.00,50
+Sawed-Off | Full Stop,Field-Tested,0.30,50
