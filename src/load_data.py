@@ -45,11 +45,3 @@ def load_prices():
     check_required_columns(table, required_columns)
 
     return table
-
-def load_combined_table():
-    skins_metadata = load_skins_metadata()
-    prices = load_prices()
-
-    combined_table = skins_metadata.merge(prices, how="left", on="skin_name")
-
-    return combined_table

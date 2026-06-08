@@ -1,9 +1,49 @@
 skin_name,collection,rarity,min_float,max_float,stattrak
-MAC-10 | Silver,The Bank Collection,Industrial Grade,0.00,1.00,False
-Nova | Candy Apple,The Italy Collection,Industrial Grade,0.00,1.00,False
-Desert Eagle | Meteorite,The Bank Collection,Mil-Spec,0.00,1.00,False
-Galil AR | Tuxedo,The Bank Collection,Mil-Spec,0.00,1.00,False
-CZ75-Auto | Tuxedo,The Bank Collection,Mil-Spec,0.00,1.00,False
-Glock-18 | Candy Apple,The Italy Collection,Mil-Spec,0.00,1.00,False
-MP7 | Anodized Navy,The Italy Collection,Mil-Spec,0.00,1.00,False
-Sawed-Off | Full Stop,The Italy Collection,Mil-Spec,0.00,1.00,False
+MAC-10 | Silver,The Bank Collection,Industrial Grade,0.0,1.0,False
+UMP-45 | Carbon Fiber,The Bank Collection,Industrial Grade,0.0,1.0,False
+R8 Revolver | Bone Mask,The Bank Collection,Industrial Grade,0.06,0.8,False
+MP9 | Green Plaid,The Bank Collection,Industrial Grade,0.0,0.58,False
+Desert Eagle | Meteorite,The Bank Collection,Mil-Spec,0.0,0.18,False
+Galil AR | Tuxedo,The Bank Collection,Mil-Spec,0.0,0.8,False
+CZ75-Auto | Tuxedo,The Bank Collection,Mil-Spec,0.0,1.0,False
+P250 | Franklin,The Bank Collection,Mil-Spec,0.0,0.4,False
+Nova | Candy Apple,The Italy Collection,Industrial Grade,0.0,0.7,False
+M249 | Candy Apple,The Italy Collection,Industrial Grade,0.0,0.65,False
+Dual Berettas | Stained,The Italy Collection,Industrial Grade,0.0,1.0,False
+Sawed-Off | Full Stop,The Italy Collection,Industrial Grade,0.0,0.6,False
+Glock-18 | Candy Apple,The Italy Collection,Mil-Spec,0.0,0.3,False
+MP7 | Anodized Navy,The Italy Collection,Mil-Spec,0.0,0.08,False
+Sawed-Off | Orange DDPAT,The Italy Collection,Mil-Spec,0.06,0.8,False
+Nova | Green Apple,The Italy Collection,Mil-Spec,0.0,1.0,False
+P250 | Sand Dune,The Dust 2 Collection,Industrial Grade,0.06,0.8,False
+Sawed-Off | Snake Camo,The Dust 2 Collection,Industrial Grade,0.06,0.8,False
+MP9 | Sand Dashed,The Dust 2 Collection,Industrial Grade,0.06,0.8,False
+G3SG1 | Desert Storm,The Dust 2 Collection,Industrial Grade,0.06,0.8,False
+AK-47 | Safari Mesh,The Dust 2 Collection,Mil-Spec,0.06,0.8,False
+M4A1-S | VariCamo,The Dust 2 Collection,Mil-Spec,0.0,1.0,False
+P90 | Sand Spray,The Dust 2 Collection,Mil-Spec,0.06,0.8,False
+Five-SeveN | Orange Peel,The Dust 2 Collection,Mil-Spec,0.06,0.8,False
+MP9 | Storm,The Lake Collection,Industrial Grade,0.06,0.8,False
+SG 553 | Anodized Navy,The Lake Collection,Industrial Grade,0.0,0.08,False
+XM1014 | Blue Spruce,The Lake Collection,Industrial Grade,0.06,0.8,False
+PP-Bizon | Night Ops,The Lake Collection,Industrial Grade,0.0,0.6,False
+AUG | Storm,The Lake Collection,Mil-Spec,0.06,0.8,False
+XM1014 | Blue Steel,The Lake Collection,Mil-Spec,0.0,1.0,False
+FAMAS | Cyanospatter,The Lake Collection,Mil-Spec,0.06,0.8,False
+SG 553 | Wave Spray,The Lake Collection,Mil-Spec,0.06,0.8,False
+SSG 08 | Blue Spruce,The Safehouse Collection,Industrial Grade,0.06,0.8,False
+G3SG1 | VariCamo,The Safehouse Collection,Industrial Grade,0.0,0.6,False
+MP7 | Forest DDPAT,The Safehouse Collection,Industrial Grade,0.06,0.8,False
+Tec-9 | Army Mesh,The Safehouse Collection,Industrial Grade,0.0,0.7,False
+M4A1-S | Nitro,The Safehouse Collection,Mil-Spec,0.06,0.8,False
+USP-S | Forest Leaves,The Safehouse Collection,Mil-Spec,0.06,0.8,False
+MP9 | Orange Peel,The Safehouse Collection,Mil-Spec,0.06,0.8,False
+FAMAS | Teardown,The Safehouse Collection,Mil-Spec,0.0,0.6,False
+P90 | Ash Wood,The Train Collection,Industrial Grade,0.0,0.45,False
+Five-SeveN | Forest Night,The Train Collection,Industrial Grade,0.06,0.8,False
+M249 | Contrast Spray,The Train Collection,Industrial Grade,0.0,0.6,False
+PP-Bizon | Urban Dashed,The Train Collection,Industrial Grade,0.06,0.8,False
+Tec-9 | Red Quartz,The Train Collection,Mil-Spec,0.0,0.4,False
+MAG-7 | Metallic DDPAT,The Train Collection,Mil-Spec,0.0,0.08,False
+Sawed-Off | Amber Fade,The Train Collection,Mil-Spec,0.0,0.4,False
+P250 | Metallic DDPAT,The Train Collection,Mil-Spec,0.0,0.08,False

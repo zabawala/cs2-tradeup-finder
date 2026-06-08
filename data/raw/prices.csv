@@ -1,9 +1,241 @@
 skin_name,wear,price,volume
-MAC-10 | Silver,Field-Tested,0.25,100
-Nova | Candy Apple,Field-Tested,0.15,100
-Desert Eagle | Meteorite,Field-Tested,1.00,50
-Galil AR | Tuxedo,Field-Tested,0.70,50
-CZ75-Auto | Tuxedo,Field-Tested,0.40,50
-Glock-18 | Candy Apple,Field-Tested,1.20,50
-MP7 | Anodized Navy,Field-Tested,2.00,50
-Sawed-Off | Full Stop,Field-Tested,0.30,50
+MAC-10 | Silver,Factory New,0.64,20
+MAC-10 | Silver,Minimal Wear,0.45,45
+MAC-10 | Silver,Field-Tested,0.28,120
+MAC-10 | Silver,Well-Worn,0.21,70
+MAC-10 | Silver,Battle-Scarred,0.16,60
+UMP-45 | Carbon Fiber,Factory New,0.76,20
+UMP-45 | Carbon Fiber,Minimal Wear,0.53,45
+UMP-45 | Carbon Fiber,Field-Tested,0.33,120
+UMP-45 | Carbon Fiber,Well-Worn,0.25,70
+UMP-45 | Carbon Fiber,Battle-Scarred,0.19,60
+R8 Revolver | Bone Mask,Factory New,0.44,20
+R8 Revolver | Bone Mask,Minimal Wear,0.3,45
+R8 Revolver | Bone Mask,Field-Tested,0.19,120
+R8 Revolver | Bone Mask,Well-Worn,0.14,70
+R8 Revolver | Bone Mask,Battle-Scarred,0.11,60
+MP9 | Green Plaid,Factory New,0.55,20
+MP9 | Green Plaid,Minimal Wear,0.38,45
+MP9 | Green Plaid,Field-Tested,0.24,120
+MP9 | Green Plaid,Well-Worn,0.18,70
+MP9 | Green Plaid,Battle-Scarred,0.14,60
+Desert Eagle | Meteorite,Factory New,3.33,20
+Desert Eagle | Meteorite,Minimal Wear,2.32,45
+Desert Eagle | Meteorite,Field-Tested,1.45,120
+Desert Eagle | Meteorite,Well-Worn,1.1,70
+Desert Eagle | Meteorite,Battle-Scarred,0.84,60
+Galil AR | Tuxedo,Factory New,1.95,20
+Galil AR | Tuxedo,Minimal Wear,1.36,45
+Galil AR | Tuxedo,Field-Tested,0.85,120
+Galil AR | Tuxedo,Well-Worn,0.65,70
+Galil AR | Tuxedo,Battle-Scarred,0.49,60
+CZ75-Auto | Tuxedo,Factory New,1.26,20
+CZ75-Auto | Tuxedo,Minimal Wear,0.88,45
+CZ75-Auto | Tuxedo,Field-Tested,0.55,120
+CZ75-Auto | Tuxedo,Well-Worn,0.42,70
+CZ75-Auto | Tuxedo,Battle-Scarred,0.32,60
+P250 | Franklin,Factory New,2.64,20
+P250 | Franklin,Minimal Wear,1.84,45
+P250 | Franklin,Field-Tested,1.15,120
+P250 | Franklin,Well-Worn,0.87,70
+P250 | Franklin,Battle-Scarred,0.67,60
+Nova | Candy Apple,Factory New,0.41,20
+Nova | Candy Apple,Minimal Wear,0.29,45
+Nova | Candy Apple,Field-Tested,0.18,120
+Nova | Candy Apple,Well-Worn,0.14,70
+Nova | Candy Apple,Battle-Scarred,0.1,60
+M249 | Candy Apple,Factory New,0.37,20
+M249 | Candy Apple,Minimal Wear,0.26,45
+M249 | Candy Apple,Field-Tested,0.16,120
+M249 | Candy Apple,Well-Worn,0.12,70
+M249 | Candy Apple,Battle-Scarred,0.09,60
+Dual Berettas | Stained,Factory New,0.46,20
+Dual Berettas | Stained,Minimal Wear,0.32,45
+Dual Berettas | Stained,Field-Tested,0.2,120
+Dual Berettas | Stained,Well-Worn,0.15,70
+Dual Berettas | Stained,Battle-Scarred,0.12,60
+Sawed-Off | Full Stop,Factory New,0.48,20
+Sawed-Off | Full Stop,Minimal Wear,0.34,45
+Sawed-Off | Full Stop,Field-Tested,0.21,120
+Sawed-Off | Full Stop,Well-Worn,0.16,70
+Sawed-Off | Full Stop,Battle-Scarred,0.12,60
+Glock-18 | Candy Apple,Factory New,2.53,20
+Glock-18 | Candy Apple,Minimal Wear,1.76,45
+Glock-18 | Candy Apple,Field-Tested,1.1,120
+Glock-18 | Candy Apple,Well-Worn,0.84,70
+Glock-18 | Candy Apple,Battle-Scarred,0.64,60
+MP7 | Anodized Navy,Factory New,4.14,20
+MP7 | Anodized Navy,Minimal Wear,2.88,45
+MP7 | Anodized Navy,Field-Tested,1.8,120
+MP7 | Anodized Navy,Well-Worn,1.37,70
+MP7 | Anodized Navy,Battle-Scarred,1.04,60
+Sawed-Off | Orange DDPAT,Factory New,1.38,20
+Sawed-Off | Orange DDPAT,Minimal Wear,0.96,45
+Sawed-Off | Orange DDPAT,Field-Tested,0.6,120
+Sawed-Off | Orange DDPAT,Well-Worn,0.46,70
+Sawed-Off | Orange DDPAT,Battle-Scarred,0.35,60
+Nova | Green Apple,Factory New,1.66,20
+Nova | Green Apple,Minimal Wear,1.15,45
+Nova | Green Apple,Field-Tested,0.72,120
+Nova | Green Apple,Well-Worn,0.55,70
+Nova | Green Apple,Battle-Scarred,0.42,60
+P250 | Sand Dune,Factory New,0.28,20
+P250 | Sand Dune,Minimal Wear,0.19,45
+P250 | Sand Dune,Field-Tested,0.12,120
+P250 | Sand Dune,Well-Worn,0.09,70
+P250 | Sand Dune,Battle-Scarred,0.07,60
+Sawed-Off | Snake Camo,Factory New,0.25,20
+Sawed-Off | Snake Camo,Minimal Wear,0.18,45
+Sawed-Off | Snake Camo,Field-Tested,0.11,120
+Sawed-Off | Snake Camo,Well-Worn,0.08,70
+Sawed-Off | Snake Camo,Battle-Scarred,0.06,60
+MP9 | Sand Dashed,Factory New,0.3,20
+MP9 | Sand Dashed,Minimal Wear,0.21,45
+MP9 | Sand Dashed,Field-Tested,0.13,120
+MP9 | Sand Dashed,Well-Worn,0.1,70
+MP9 | Sand Dashed,Battle-Scarred,0.08,60
+G3SG1 | Desert Storm,Factory New,0.34,20
+G3SG1 | Desert Storm,Minimal Wear,0.24,45
+G3SG1 | Desert Storm,Field-Tested,0.15,120
+G3SG1 | Desert Storm,Well-Worn,0.11,70
+G3SG1 | Desert Storm,Battle-Scarred,0.09,60
+AK-47 | Safari Mesh,Factory New,1.72,20
+AK-47 | Safari Mesh,Minimal Wear,1.2,45
+AK-47 | Safari Mesh,Field-Tested,0.75,120
+AK-47 | Safari Mesh,Well-Worn,0.57,70
+AK-47 | Safari Mesh,Battle-Scarred,0.43,60
+M4A1-S | VariCamo,Factory New,2.18,20
+M4A1-S | VariCamo,Minimal Wear,1.52,45
+M4A1-S | VariCamo,Field-Tested,0.95,120
+M4A1-S | VariCamo,Well-Worn,0.72,70
+M4A1-S | VariCamo,Battle-Scarred,0.55,60
+P90 | Sand Spray,Factory New,0.8,20
+P90 | Sand Spray,Minimal Wear,0.56,45
+P90 | Sand Spray,Field-Tested,0.35,120
+P90 | Sand Spray,Well-Worn,0.27,70
+P90 | Sand Spray,Battle-Scarred,0.2,60
+Five-SeveN | Orange Peel,Factory New,1.15,20
+Five-SeveN | Orange Peel,Minimal Wear,0.8,45
+Five-SeveN | Orange Peel,Field-Tested,0.5,120
+Five-SeveN | Orange Peel,Well-Worn,0.38,70
+Five-SeveN | Orange Peel,Battle-Scarred,0.29,60
+MP9 | Storm,Factory New,0.32,20
+MP9 | Storm,Minimal Wear,0.22,45
+MP9 | Storm,Field-Tested,0.14,120
+MP9 | Storm,Well-Worn,0.11,70
+MP9 | Storm,Battle-Scarred,0.08,60
+SG 553 | Anodized Navy,Factory New,0.51,20
+SG 553 | Anodized Navy,Minimal Wear,0.35,45
+SG 553 | Anodized Navy,Field-Tested,0.22,120
+SG 553 | Anodized Navy,Well-Worn,0.17,70
+SG 553 | Anodized Navy,Battle-Scarred,0.13,60
+XM1014 | Blue Spruce,Factory New,0.28,20
+XM1014 | Blue Spruce,Minimal Wear,0.19,45
+XM1014 | Blue Spruce,Field-Tested,0.12,120
+XM1014 | Blue Spruce,Well-Worn,0.09,70
+XM1014 | Blue Spruce,Battle-Scarred,0.07,60
+PP-Bizon | Night Ops,Factory New,0.39,20
+PP-Bizon | Night Ops,Minimal Wear,0.27,45
+PP-Bizon | Night Ops,Field-Tested,0.17,120
+PP-Bizon | Night Ops,Well-Worn,0.13,70
+PP-Bizon | Night Ops,Battle-Scarred,0.1,60
+AUG | Storm,Factory New,1.38,20
+AUG | Storm,Minimal Wear,0.96,45
+AUG | Storm,Field-Tested,0.6,120
+AUG | Storm,Well-Worn,0.46,70
+AUG | Storm,Battle-Scarred,0.35,60
+XM1014 | Blue Steel,Factory New,0.97,20
+XM1014 | Blue Steel,Minimal Wear,0.67,45
+XM1014 | Blue Steel,Field-Tested,0.42,120
+XM1014 | Blue Steel,Well-Worn,0.32,70
+XM1014 | Blue Steel,Battle-Scarred,0.24,60
+FAMAS | Cyanospatter,Factory New,1.61,20
+FAMAS | Cyanospatter,Minimal Wear,1.12,45
+FAMAS | Cyanospatter,Field-Tested,0.7,120
+FAMAS | Cyanospatter,Well-Worn,0.53,70
+FAMAS | Cyanospatter,Battle-Scarred,0.41,60
+SG 553 | Wave Spray,Factory New,1.33,20
+SG 553 | Wave Spray,Minimal Wear,0.93,45
+SG 553 | Wave Spray,Field-Tested,0.58,120
+SG 553 | Wave Spray,Well-Worn,0.44,70
+SG 553 | Wave Spray,Battle-Scarred,0.34,60
+SSG 08 | Blue Spruce,Factory New,0.3,20
+SSG 08 | Blue Spruce,Minimal Wear,0.21,45
+SSG 08 | Blue Spruce,Field-Tested,0.13,120
+SSG 08 | Blue Spruce,Well-Worn,0.1,70
+SSG 08 | Blue Spruce,Battle-Scarred,0.08,60
+G3SG1 | VariCamo,Factory New,0.32,20
+G3SG1 | VariCamo,Minimal Wear,0.22,45
+G3SG1 | VariCamo,Field-Tested,0.14,120
+G3SG1 | VariCamo,Well-Worn,0.11,70
+G3SG1 | VariCamo,Battle-Scarred,0.08,60
+MP7 | Forest DDPAT,Factory New,0.23,20
+MP7 | Forest DDPAT,Minimal Wear,0.16,45
+MP7 | Forest DDPAT,Field-Tested,0.1,120
+MP7 | Forest DDPAT,Well-Worn,0.08,70
+MP7 | Forest DDPAT,Battle-Scarred,0.06,60
+Tec-9 | Army Mesh,Factory New,0.25,20
+Tec-9 | Army Mesh,Minimal Wear,0.18,45
+Tec-9 | Army Mesh,Field-Tested,0.11,120
+Tec-9 | Army Mesh,Well-Worn,0.08,70
+Tec-9 | Army Mesh,Battle-Scarred,0.06,60
+M4A1-S | Nitro,Factory New,2.99,20
+M4A1-S | Nitro,Minimal Wear,2.08,45
+M4A1-S | Nitro,Field-Tested,1.3,120
+M4A1-S | Nitro,Well-Worn,0.99,70
+M4A1-S | Nitro,Battle-Scarred,0.75,60
+USP-S | Forest Leaves,Factory New,1.1,20
+USP-S | Forest Leaves,Minimal Wear,0.77,45
+USP-S | Forest Leaves,Field-Tested,0.48,120
+USP-S | Forest Leaves,Well-Worn,0.36,70
+USP-S | Forest Leaves,Battle-Scarred,0.28,60
+MP9 | Orange Peel,Factory New,1.2,20
+MP9 | Orange Peel,Minimal Wear,0.83,45
+MP9 | Orange Peel,Field-Tested,0.52,120
+MP9 | Orange Peel,Well-Worn,0.4,70
+MP9 | Orange Peel,Battle-Scarred,0.3,60
+FAMAS | Teardown,Factory New,1.75,20
+FAMAS | Teardown,Minimal Wear,1.22,45
+FAMAS | Teardown,Field-Tested,0.76,120
+FAMAS | Teardown,Well-Worn,0.58,70
+FAMAS | Teardown,Battle-Scarred,0.44,60
+P90 | Ash Wood,Factory New,0.37,20
+P90 | Ash Wood,Minimal Wear,0.26,45
+P90 | Ash Wood,Field-Tested,0.16,120
+P90 | Ash Wood,Well-Worn,0.12,70
+P90 | Ash Wood,Battle-Scarred,0.09,60
+Five-SeveN | Forest Night,Factory New,0.3,20
+Five-SeveN | Forest Night,Minimal Wear,0.21,45
+Five-SeveN | Forest Night,Field-Tested,0.13,120
+Five-SeveN | Forest Night,Well-Worn,0.1,70
+Five-SeveN | Forest Night,Battle-Scarred,0.08,60
+M249 | Contrast Spray,Factory New,0.28,20
+M249 | Contrast Spray,Minimal Wear,0.19,45
+M249 | Contrast Spray,Field-Tested,0.12,120
+M249 | Contrast Spray,Well-Worn,0.09,70
+M249 | Contrast Spray,Battle-Scarred,0.07,60
+PP-Bizon | Urban Dashed,Factory New,0.23,20
+PP-Bizon | Urban Dashed,Minimal Wear,0.16,45
+PP-Bizon | Urban Dashed,Field-Tested,0.1,120
+PP-Bizon | Urban Dashed,Well-Worn,0.08,70
+PP-Bizon | Urban Dashed,Battle-Scarred,0.06,60
+Tec-9 | Red Quartz,Factory New,2.18,20
+Tec-9 | Red Quartz,Minimal Wear,1.52,45
+Tec-9 | Red Quartz,Field-Tested,0.95,120
+Tec-9 | Red Quartz,Well-Worn,0.72,70
+Tec-9 | Red Quartz,Battle-Scarred,0.55,60
+MAG-7 | Metallic DDPAT,Factory New,2.76,20
+MAG-7 | Metallic DDPAT,Minimal Wear,1.92,45
+MAG-7 | Metallic DDPAT,Field-Tested,1.2,120
+MAG-7 | Metallic DDPAT,Well-Worn,0.91,70
+MAG-7 | Metallic DDPAT,Battle-Scarred,0.7,60
+Sawed-Off | Amber Fade,Factory New,2.02,20
+Sawed-Off | Amber Fade,Minimal Wear,1.41,45
+Sawed-Off | Amber Fade,Field-Tested,0.88,120
+Sawed-Off | Amber Fade,Well-Worn,0.67,70
+Sawed-Off | Amber Fade,Battle-Scarred,0.51,60
+P250 | Metallic DDPAT,Factory New,2.42,20
+P250 | Metallic DDPAT,Minimal Wear,1.68,45
+P250 | Metallic DDPAT,Field-Tested,1.05,120
+P250 | Metallic DDPAT,Well-Worn,0.8,70
+P250 | Metallic DDPAT,Battle-Scarred,0.61,60
