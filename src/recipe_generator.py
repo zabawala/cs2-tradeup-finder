@@ -1,8 +1,7 @@
-from load_data import load_prices, load_skins_metadata
+from load_data import load_skins_metadata
 
 import pandas as pd
 
-prices = load_prices()
 skins_metadata = load_skins_metadata()
 
 def get_same_rarity_inputs(skins_metadata, rarity):

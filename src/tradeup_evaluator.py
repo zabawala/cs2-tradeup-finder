@@ -12,6 +12,22 @@ example_recipe = [
     
 # Helper function to check whether recipe has exactly 10 skins
 
+def create_price_lookup(prices):
+    required_columns = ["skin_name", "wear", "price"]
+
+    for column in required_columns:
+        if column not in prices.columns:
+            raise ValueError(f"Missing required column in prices: {column}")
+
+    duplicate_prices = prices.duplicated(subset=["skin_name", "wear"], keep=False)
+
+    if duplicate_prices.any():
+        duplicates = prices[duplicate_prices][["skin_name", "wear"]]
+        raise ValueError(f"Duplicate price rows found:\n{duplicates}")
+
+    price_lookup = prices.set_index(["skin_name", "wear"])["price"].to_dict()
+
+    return price_lookup
 
 def calculate_adjusted_float(actual_float, min_float, max_float):
     adjusted_float = (actual_float - min_float)/(max_float - min_float)
@@ -104,45 +120,6 @@ def get_unique_adjusted_breakpoints(possible_outputs):
 
     return unique_breakpoints
 
-def get_output_probabilities(recipe, k, input_table, possible_outputs):
-
-    recipe_quantities = {
-        recipe[0]: k,
-        recipe[1]: 10 - k
-    }
-    
-    collection_quantities = {}
-    for skin in recipe_quantities:
-        quantity = recipe_quantities[skin]
-        skin_row = input_table[input_table["skin_name"] == skin]
-        collection = skin_row["collection"].iloc[0]
-
-        if collection not in collection_quantities:
-            collection_quantities[collection] = 0
-        
-        collection_quantities[collection] += quantity
-
-    output_counts = possible_outputs["collection"].value_counts()
-
-    output_with_probabilities = possible_outputs.copy()
-
-    output_with_probabilities = output_with_probabilities.drop(columns=["adjusted_breakpoints"])
-
-    probabilities = []
-
-    for index, row in output_with_probabilities.iterrows():
-        collection = row["collection"]
-        number_of_outputs = output_counts[collection]
-        collection_weight = collection_quantities[collection] / 10
-        
-        probability = collection_weight / number_of_outputs
-
-        probabilities.append(probability)
-
-    output_with_probabilities["probability"] = probabilities
-
-    return output_with_probabilities
-
 """
 Calculating Profitability
 """
@@ -187,15 +164,14 @@ def get_input_float_and_wear(breakpoint, input_table):
     return input_with_float_and_wear
 
 
-
-def get_output_float_and_wear(breakpoint, output_with_probabilities):
-    output_with_float_and_wear = output_with_probabilities.copy()
+def get_output_float_and_wear(breakpoint, possible_outputs):
+    output_with_float_and_wear = possible_outputs.copy()
 
     target_adjusted_float = breakpoint - 0.000001
 
     output_floats = []
 
-    for index, row in output_with_probabilities.iterrows():
+    for index, row in possible_outputs.iterrows():
         min_float = row["min_float"]
         max_float = row["max_float"]
 
@@ -209,27 +185,33 @@ def get_output_float_and_wear(breakpoint, output_with_probabilities):
 
     return output_with_float_and_wear
 
+def get_price(prices, skin_name, wear):
+    key = (skin_name, wear)
+
+    if key not in prices:
+        raise ValueError(f"Missing price for {skin_name} in {wear}")
+
+    return prices[key]
+
+# Helper function for prices
+
 def get_input_prices(input_with_float_and_wear, prices):
-    price_row = prices[["skin_name", "wear", "price"]].copy()
+    input_with_prices = input_with_float_and_wear.copy()
 
-    input_with_prices = input_with_float_and_wear.merge(price_row, on=["skin_name", "wear"], how="left")
-
-    missing_prices = input_with_prices[input_with_prices["price"].isna()]
-
-    if not missing_prices.empty:
-        raise ValueError(f"Missing prices for:\n{missing_prices[['skin_name', 'wear']]}")
+    input_with_prices["price"] = input_with_prices.apply(
+        lambda row: get_price(prices, row["skin_name"], row["wear"]),
+        axis=1
+    )
     
     return input_with_prices
 
 def get_output_prices(output_with_float_and_wear, prices):
-    price_rows = prices[["skin_name", "wear", "price"]].copy()
+    output_with_prices = output_with_float_and_wear.copy()
 
-    output_with_prices = output_with_float_and_wear.merge(price_rows, on=["skin_name", "wear"], how="left")
-
-    missing_prices = output_with_prices[output_with_prices["price"].isna()]
-
-    if not missing_prices.empty:
-        raise ValueError(f"Missing prices for:\n{missing_prices[['skin_name', 'wear']]}")
+    output_with_prices["price"] = output_with_prices.apply(
+        lambda row: get_price(prices, row["skin_name"], row["wear"]),
+        axis=1
+    )
     
     return output_with_prices
 
@@ -250,9 +232,32 @@ def compute_input_cost(recipe, k, input_with_prices):
 
     return input_cost
 
-def compute_expected_output_value(output_with_prices):
-    expected_output = (output_with_prices["probability"] * output_with_prices["price"]).sum()
-    
+def get_collection_expected_values(output_with_prices):
+    collection_expected_values = (
+        output_with_prices
+        .groupby("collection")["price"]
+        .mean()
+        .to_dict()
+    )
+
+    return collection_expected_values
+
+def compute_expected_output_from_collections(recipe, k, input_table, collection_expected_values):
+    recipe_quantities = {
+        recipe[0]: k,
+        recipe[1]: 10 - k
+    }
+
+    expected_output = 0.0
+
+    for skin_name, quantity in recipe_quantities.items():
+        skin_row = input_table[input_table["skin_name"] == skin_name]
+        collection = skin_row["collection"].iloc[0]
+
+        collection_expected_value = collection_expected_values[collection]
+
+        expected_output += (quantity / 10) * collection_expected_value
+
     return expected_output
 
 def compute_expected_profit(expected_output, input_cost):
@@ -261,21 +266,72 @@ def compute_expected_profit(expected_output, input_cost):
 def compute_roi(expected_profit, input_cost):
     return expected_profit / input_cost
 
+
+def get_wear_bounds(wear):
+    wear_bounds = {
+        "Factory New": (0.00, 0.07),
+        "Minimal Wear": (0.07, 0.15),
+        "Field-Tested": (0.15, 0.38),
+        "Well-Worn": (0.38, 0.45),
+        "Battle-Scarred": (0.45, 1.00)
+    }
+
+    if wear not in wear_bounds:
+        raise ValueError(f"Unknown wear: {wear}")
+    
+    return wear_bounds[wear]
+
+# Helper function for wastage
+
+
+def compute_row_wastage(row):
+    input_float = row["input_float"]
+    wear = row["wear"]
+
+    wear_min, wear_max = get_wear_bounds(wear)
+    
+    lower_bound = max(wear_min, row["min_float"])
+    upper_bound = min(wear_max, row["max_float"])
+
+    range = upper_bound - lower_bound
+
+    if range <= 0:
+        raise ValueError("Invalid wear band for input skin")
+    
+    wastage = (upper_bound - input_float) / range
+
+    return wastage
+
+def compute_input_wastage(recipe, k, input_with_prices):
+    recipe_quantities = {
+        recipe[0]: k,
+        recipe[1]: 10 - k
+    }
+
+    total_quantity = 0
+    total_weighted_wastage = 0.0
+
+    for index, row in input_with_prices.iterrows():
+        skin_name = row["skin_name"]
+        quantity = recipe_quantities[skin_name]
+
+        row_wastage = compute_row_wastage(row)
+
+        total_weighted_wastage += row_wastage * quantity
+        total_quantity += quantity
+
+    return total_weighted_wastage / total_quantity
+
+def compute_tradeup_score(roi, wastage):
+    return roi * (1 - wastage)
+
+
+
 """
 WRAPPER FUNCTION FOR 1 CANDIDATE
 """
 
-def evaluate_candidate(recipe, k, breakpoint, input_table, output_with_probabilities, prices):
-
-    input_with_float_and_wear = get_input_float_and_wear(
-        breakpoint,
-        input_table
-    )
-
-    input_with_prices = get_input_prices(
-        input_with_float_and_wear,
-        prices
-    )
+def evaluate_candidate(recipe, k, breakpoint, input_with_prices, expected_output):
 
     input_cost = compute_input_cost(
         recipe,
@@ -283,21 +339,26 @@ def evaluate_candidate(recipe, k, breakpoint, input_table, output_with_probabili
         input_with_prices
     )
 
-    output_with_float_and_wear = get_output_float_and_wear(
-        breakpoint,
-        output_with_probabilities
+    expected_profit = compute_expected_profit(
+        expected_output,
+        input_cost
     )
 
-    output_with_prices = get_output_prices(
-        output_with_float_and_wear,
-        prices
+    roi = compute_roi(
+        expected_profit,
+        input_cost
     )
 
-    expected_output = compute_expected_output_value(output_with_prices)
+    wastage = compute_input_wastage(
+        recipe,
+        k,
+        input_with_prices
+    )
 
-    expected_profit = compute_expected_profit(expected_output, input_cost)
-
-    roi = compute_roi(expected_profit, input_cost)
+    score = compute_tradeup_score(
+        roi,
+        wastage
+    )
 
     result = {
         "skin_a": recipe[0],
@@ -310,6 +371,8 @@ def evaluate_candidate(recipe, k, breakpoint, input_table, output_with_probabili
         "expected_output": expected_output,
         "expected_profit": expected_profit,
         "roi": roi,
+        "wastage": wastage,
+        "score": score
     }
 
     return result

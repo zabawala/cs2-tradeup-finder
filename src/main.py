@@ -5,40 +5,78 @@ from recipe_generator import get_same_rarity_inputs
 
 import tradeup_evaluator as te
 
-prices = load_prices()
 
-skins_metadata = load_skins_metadata()
+def main():
+    prices = load_prices()
+    prices = te.create_price_lookup(prices)
 
-adjusted_table = te.get_adjusted_table(skins_metadata)
+    skins_metadata = load_skins_metadata()
 
-results = []
+    adjusted_table = te.get_adjusted_table(skins_metadata)
 
-industrial_grade_pairs = get_same_rarity_inputs(skins_metadata, "Industrial Grade")
+    roi_results = []
+    score_results = []
 
-for recipe in industrial_grade_pairs:
-    te.check_input_skins_exist(recipe, adjusted_table)
+    industrial_grade_pairs = get_same_rarity_inputs(skins_metadata, "Industrial Grade")
 
-    input_table = te.get_input_table(recipe, adjusted_table)
-    possible_outputs = te.get_possible_outputs(input_table, adjusted_table)
-    unique_breakpoints = te.get_unique_adjusted_breakpoints(possible_outputs)
+    for recipe in industrial_grade_pairs:
+        te.check_input_skins_exist(recipe, adjusted_table)
 
-    for k in range(1, 10):
-        output_probabilities = te.get_output_probabilities(recipe, k, input_table, possible_outputs)
+        input_table = te.get_input_table(recipe, adjusted_table)
+        possible_outputs = te.get_possible_outputs(input_table, adjusted_table)
+        unique_breakpoints = te.get_unique_adjusted_breakpoints(possible_outputs)
+        
+        best_roi_candidate = None
+        best_score_candidate = None
 
         for breakpoint in unique_breakpoints:
-            result = te.evaluate_candidate(
-                recipe,
-                k,
-                breakpoint,
-                input_table,
-                output_probabilities,
-                prices
-            )
+            input_with_float_and_wear = te.get_input_float_and_wear(breakpoint, input_table)
+            input_with_prices = te.get_input_prices(input_with_float_and_wear, prices)
 
-            results.append(result)
+            output_with_float_and_wear = te.get_output_float_and_wear(breakpoint, possible_outputs)
+            output_with_prices = te.get_input_prices(output_with_float_and_wear, prices)
 
-results_table = pd.DataFrame(results)
+            collection_expected_value = te.get_collection_expected_values(output_with_prices)
+            for k in range(1, 10):
+                expected_output = te.compute_expected_output_from_collections(recipe, k, input_table, collection_expected_value)
+            
+                result = te.evaluate_candidate(
+                    recipe,
+                    k,
+                    breakpoint,
+                    input_with_prices,
+                    expected_output
+                )
 
-results_table = results_table.sort_values("roi", ascending=False)
+                if best_roi_candidate == None:
+                    best_roi_candidate = result
+                elif result["roi"] > best_roi_candidate["roi"]:
+                    best_roi_candidate = result
 
-results_table.to_csv("data/outputs/opportunities.csv", index=False)
+                if best_score_candidate == None:
+                    best_score_candidate = result
+                elif result["score"] > best_score_candidate["score"]:
+                    best_score_candidate = result
+            
+        roi_results.append(best_roi_candidate)
+        score_results.append(best_score_candidate)
+
+
+
+    roi_results_table = pd.DataFrame(roi_results)
+
+    roi_results_table = roi_results_table.sort_values("roi", ascending=False)
+
+    t20_roi = roi_results_table[0:20]
+
+    t20_roi.to_csv("data/outputs/t20_roi.csv", index=False)
+
+    score_results_table = pd.DataFrame(score_results)
+
+    score_results_table = score_results_table.sort_values("score", ascending=False)
+
+    t20_score = score_results_table[0:20]
+
+    t20_score.to_csv("data/outputs/t20_score.csv", index=False)
+
+main()
