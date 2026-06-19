@@ -5,15 +5,8 @@ import pandas as pd
 skins_metadata = load_skins_metadata()
 prices = load_prices()
 
-example_recipe = [
-    "MAC-10 | Silver",
-    "Nova | Candy Apple"
-]
-    
-# Helper function to check whether recipe has exactly 10 skins
-
 def create_price_lookup(prices):
-    required_columns = ["skin_name", "wear", "price"]
+    required_columns = ["skin_name", "wear", "price", "median_price"]
 
     for column in required_columns:
         if column not in prices.columns:
@@ -24,8 +17,17 @@ def create_price_lookup(prices):
     if duplicate_prices.any():
         duplicates = prices[duplicate_prices][["skin_name", "wear"]]
         raise ValueError(f"Duplicate price rows found:\n{duplicates}")
+    
+    prices["effective_price"] = prices["price"]
 
-    price_lookup = prices.set_index(["skin_name", "wear"])["price"].to_dict()
+    missing_price = prices["effective_price"].isna()
+
+    prices.loc[missing_price, "effective_price"] = prices.loc[
+        missing_price,
+        "median_price"
+    ]
+
+    price_lookup = prices.set_index(["skin_name", "wear"])["effective_price"].to_dict()
 
     return price_lookup
 
@@ -188,10 +190,10 @@ def get_output_float_and_wear(breakpoint, possible_outputs):
 def get_price(prices, skin_name, wear):
     key = (skin_name, wear)
 
-    if key not in prices:
-        raise ValueError(f"Missing price for {skin_name} in {wear}")
+    return prices.get(key)
 
-    return prices[key]
+def has_missing_prices(table):
+    return table["price"].isna().any()
 
 # Helper function for prices
 
